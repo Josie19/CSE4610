@@ -78,6 +78,11 @@ int main()
 {
 	PasswordFile passfile("passwords.txt");
 	passfile.addpw("jmagallanes","1qaz2wsx");
-	cout << passfile.checkpw("madams","apple") << endl;
+	passfile.addpw("dbotting", "123qwe");
+	passfile.addpw("egomez", "qwerty");
+	passfile.addpw("tongyu", "liberty");
+	cout << passfile.checkpw("madams","apples") << endl;
+	cout << passfile.checkpw("jsmith", "turtle") << endl;
+	cout << passfile.checkpw("jmagallanes", "1qaz2wsx") << endl;
 	return 0;
 }
