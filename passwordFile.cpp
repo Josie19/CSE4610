@@ -69,6 +69,9 @@ bool PasswordFile::checkpw(string usr, string passwd)
 				cout << "User name and password combo exists\n";
 				return true;
 			}
+			else//if password[i] != passwd
+				cout << "User name and password combo does not exist\n";
+				return false;
 		}
 	}
 	return 0;
@@ -81,7 +84,7 @@ int main()
 	passfile.addpw("dbotting", "123qwe");
 	passfile.addpw("egomez", "qwerty");
 	passfile.addpw("tongyu", "liberty");
-	cout << passfile.checkpw("madams","apples") << endl;
+	cout << passfile.checkpw("madams","apple") << endl;
 	cout << passfile.checkpw("jsmith", "turtle") << endl;
 	cout << passfile.checkpw("jmagallanes", "1qaz2wsx") << endl;
 	return 0;
