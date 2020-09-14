@@ -9,7 +9,7 @@ using namespace std;
 class PasswordFile
 {
 	public:
-		PasswordFile(string filename);//constructor opens password file
+		PasswordFile(string file);//constructor opens password file
 		void addpw(string new_user, string new_pass);//adds a new user and password
 		bool checkpw(string usr, string passwd);//checks for an existing user/password combo in password file
 	private:
@@ -20,8 +20,9 @@ class PasswordFile
 };
 
 /*----------------member function implementations------------*/
-PasswordFile::PasswordFile(string filename)
+PasswordFile::PasswordFile(string file)
 {
+	filename = file;//private member stores parameter
 	string u,p;
 	ifstream infile;//file handle
 	infile.open(filename.c_str());//open password file
@@ -39,9 +40,7 @@ void PasswordFile::synch()
 	ofstream outfile;//file handle
 	outfile.open(filename.c_str());
 	for(int i = 0;i < user.size();i++)
-	{
-		cout << user[i] << " " << password[i] << " " << endl;
-	}
+		outfile << user[i] << " " << password[i] << " " << endl;
 }
 
  void PasswordFile::addpw(string new_user,string new_pass)
