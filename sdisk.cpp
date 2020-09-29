@@ -1,8 +1,10 @@
 #include<iostream>
 #include<fstream>
+#include<sstream>
 #include<string>
 #include"filesys.h"
 #include"sdisk.h"
+#include"block.cpp"
 
 using namespace std;
 

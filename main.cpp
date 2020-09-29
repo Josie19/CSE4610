@@ -1,4 +1,5 @@
 #include<iostream>
+#include<sstream>
 #include"sdisk.h"
 #include"filesys.h"
 

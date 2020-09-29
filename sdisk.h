@@ -19,7 +19,6 @@ class Sdisk{
     string diskName;//name of software disk
     int blocksize;//store block size in bytes
     int numberofblocks;//stores number of blocks on disk
-
 };
 #endif
 /*-----------instantiate functions------------*/
