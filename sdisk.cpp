@@ -2,23 +2,23 @@
 #include<fstream>
 #include<sstream>
 #include<string>
+#include<vector>
 #include"filesys.h"
 #include"sdisk.h"
-#include"block.cpp"
 
 using namespace std;
 
 /*------Interface Implementation-------*/
-Sdisk::Sdisk(string dn,int bn,int bs)
+Sdisk::Sdisk(string diskName,int numberofblocks,int blocksize)
 {
     /*
     diskName = dn;
     blocksize = bs;
     numberofblocks = bn;
     */
-   this->diskName = dn;
-   this->blocksize = bs;
-   this->numberofblocks = bn;
+   this->diskName = diskName;
+   this->blocksize = blocksize;
+   this->numberofblocks = numberofblocks;
 
    int numChar = blocksize*numberofblocks;//total number of blocks
 

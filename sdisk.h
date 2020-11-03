@@ -1,6 +1,11 @@
 #ifndef SDISK_H
 #define SDISK_H
 
+#include<string>
+#include<sstream>
+#include<vector>
+
+using namespace std;
 /*
 Simulating the inner workings of a SSD or Hard disk drive (HDD)
 All while adding a single layer of security by encrptying the file contents being written to it
@@ -15,16 +20,14 @@ class Sdisk{
     int getnumberofblocks();//accessor function
     int getblocksize();//accessor function 
     private:
-    //static int salt;key value to initiate encryption/decryption process
     string diskName;//name of software disk
     int blocksize;//store block size in bytes
     int numberofblocks;//stores number of blocks on disk
 };
 #endif
-/*-----------instantiate functions------------*/
 //Create a txt file with bn*bs number of characters...blocksize sized blocks...numberblocks number of blocks
 /*
     base case: bs = 1 then Block 0 has blocks of size 1 Byte...1x2 table constructed in Sdisk
-    blocksize -> Byte = bs - (i)*bs - 1);
+    blocksize -> Byte = bs - (i)*bs - 1;
     numberblocks -> Block = bn - 1;
 */
