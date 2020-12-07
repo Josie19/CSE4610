@@ -8,6 +8,7 @@
 
 using namespace std;
 
+Sdisk::Sdisk(){}
 /*------Interface Implementation-------*/
 Sdisk::Sdisk(string diskName,int numberofblocks,int blocksize)
 {

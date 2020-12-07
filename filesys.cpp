@@ -6,17 +6,17 @@
 
 using namespace std;
 
-
+Filesys::Filesys(){}
 
 /*------interface implementation-------*/
-Filesys::Filesys(string diskName, int numberofblocks, int blocksize):Sdisk(diskName, numberofblocks, blocksize){
+Filesys::Filesys(string diskname, int numberofblocks, int blocksize):Sdisk(diskname, numberofblocks, blocksize){
     //create fat and root
     string buffer;
     string next_in_line;
 
     //declare the size of root and fat
-    rootsize = getblocksize() / 13;
-	fatsize = (4 * getnumberofblocks()) / getblocksize() + 1;
+    rootsize = getblocksize() / 12;
+	fatsize = (5 * getnumberofblocks()) / getblocksize() + 1;
 	getblock(1, buffer);
 
     //next, we determine if a file within the indicated filesystem exists in the indicated block
@@ -31,8 +31,8 @@ Filesys::Filesys(string diskName, int numberofblocks, int blocksize):Sdisk(diskN
         |xxxxxxxx|   |   0   |   
         =========    ========= 
         */
-		fat.push_back(fatsize);
-		fat.push_back(0);
+		fat.push_back(2+fatsize);
+		fat.push_back(-1);
 
         /*
         filesystem on Sdisk
@@ -40,11 +40,11 @@ Filesys::Filesys(string diskName, int numberofblocks, int blocksize):Sdisk(diskN
         |    2   |   |   FAT 0 |   
         =========    ============ 
         */
-		for (int i = 2; i < fatsize; ++i) {//continue to 3rd index of filesystem table
-			fat.push_back(0);
+		for (int i = 0; i < fatsize; ++i) {//continue to 3rd index of filesystem table
+			fat.push_back(-1);
 		}
 
-		for (int i = fatsize + 1; i < numberofblocks; i++) {
+		for (int i = fatsize + 2; i < numberofblocks; i++) {
 			fat.push_back(i + 1);
 		}
 		fat[fat.size() - 1] = 0;//make end-of-file, or block list, zero

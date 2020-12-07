@@ -14,6 +14,7 @@ All while adding a single layer of security by encrptying the file contents bein
 /*-----------program interface (class definition)------------*/
 class Sdisk{
     public:
+    Sdisk();
     Sdisk(string diskName, int numberofblocks, int blocksize);//constructor takes disk name, blocksize, and blocknumber; formats the disk
     int getblock(int blocknumber, string& buffer);//find the blocksize and save as reference to the buffer
     int putblock(int blocknumber, string buffer);//insert size of block in bytes to the disk from the buffer

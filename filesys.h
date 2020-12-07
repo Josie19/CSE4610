@@ -13,7 +13,8 @@ using namespace std;
 class Filesys: public Sdisk
 {
 public:
-Filesys(string diskName, int numberofblocks, int blocksize);
+Filesys();
+Filesys(string diskname, int numberofblocks, int blocksize);
 int fsclose();
 int fssynch();
 int newfile(string file);
